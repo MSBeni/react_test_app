@@ -10,7 +10,7 @@ function App() {
       <p>This is really working ...</p>
       <Person name="Noushi" age="30"/>
       <Person name="Mmammali" age="30">My Hobbies: Books</Person>
-      <Person name="Mahda" age="8"/>
+      <Person name="Mahda" age="8">I do Book Redings Online</Person>
     </div>
   );
   // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does it works now??'));
