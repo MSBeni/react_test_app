@@ -18,9 +18,9 @@ class App extends Component {
         <h1>Hi I am a React App</h1>
         <p>This is really working ...</p>
         <button>Switch Name</button>
-        <Person name="Noushi" age="30"/>
-        <Person name="Mmammali" age="30">My Hobbies: Books</Person>
-        <Person name="Mahda" age="8" />
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Books</Person>
+        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
       </div>
     )
   }
