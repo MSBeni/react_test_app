@@ -1,42 +1,77 @@
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
 
-class App extends Component {
-  state = {
+const app = props => {
+  const [personsState, setPersonState]= useState ({
     persons: [
       {name:"Noush Gol", age:"31"},
       {name:"MiMI", age:"31"},
       {name:"Faraz", age:"5"},
     ]
-  }
+  });
 
-  switchNameHandler = () =>{
+  const switchNameHandler = () =>{
     // console.log('Was Clicked!')
     // Do not Do This => this.state.persons[0].name = 'Maxim'
-    this.setState({persons: [
+    setPersonState({persons: [
       {name:"Noush Gol MiMi Chi", age:"30"},
       {name:"MiMI", age:"31"},
       {name:"Faraz", age:"6"},
     ]})
   }
-  render(){
     return(
       <div className="App">
         <h1>Hi I am a React App</h1>
         <p>This is really working ...</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Books</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+        <button onClick={switchNameHandler}>Switch Name</button>
+        <Person name={personsState.state.persons[0].name} age={personsState.state.persons[0].age}/>
+        <Person name={personsState.state.persons[1].name} age={personsState.state.persons[1].age}>My Hobbies: Books</Person>
+        <Person name={personsState.state.persons[2].name} age={personsState.state.persons[2].age} />
       </div>
     )
   }
-}
 
 export default App;
+
+
+// class App extends Component {
+//   state = {
+//     persons: [
+//       {name:"Noush Gol", age:"31"},
+//       {name:"MiMI", age:"31"},
+//       {name:"Faraz", age:"5"},
+//     ]
+//   }
+
+//   switchNameHandler = () =>{
+//     // console.log('Was Clicked!')
+//     // Do not Do This => this.state.persons[0].name = 'Maxim'
+//     this.setState({persons: [
+//       {name:"Noush Gol MiMi Chi", age:"30"},
+//       {name:"MiMI", age:"31"},
+//       {name:"Faraz", age:"6"},
+//     ]})
+//   }
+//   render(){
+//     return(
+//       <div className="App">
+//         <h1>Hi I am a React App</h1>
+//         <p>This is really working ...</p>
+//         <button onClick={this.switchNameHandler}>Switch Name</button>
+//         <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+//         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Books</Person>
+//         <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+//       </div>
+//     )
+//   }
+// }
+
+
+
+
 
 // import logo from './logo.svg';
 // import React, { Component } from 'react';
