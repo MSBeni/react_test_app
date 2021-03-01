@@ -1,5 +1,6 @@
 import React from 'react'
 
+// A Stateless Component
 const person = (props) => {
     return (
         <div>

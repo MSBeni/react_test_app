@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-
+// A Stateful Component
 const App = props => {
+  // Using useState as a react hook
   const [personsState, setPersonState] = useState ({
     persons: [
       {name:"Noush Gol", age:"31"},
@@ -21,7 +22,9 @@ const App = props => {
       {name:"Noush Gol MiMi Chi", age:"30"},
       {name:"MiMI", age:"31"},
       {name:"Faraz", age:"6"}
-    ]})
+    ],
+    otherState: personsState.otherState
+  })
   }
     return(
       <div className="App">
