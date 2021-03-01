@@ -4,13 +4,14 @@ import './App.css';
 import Person from './Person/Person';
 
 
-const app = props => {
-  const [personsState, setPersonState]= useState ({
+const App = props => {
+  const [personsState, setPersonState] = useState ({
     persons: [
       {name:"Noush Gol", age:"31"},
       {name:"MiMI", age:"31"},
       {name:"Faraz", age:"5"},
-    ]
+    ],
+    otherState: 'some other values'
   });
 
   const switchNameHandler = () =>{
@@ -19,7 +20,7 @@ const app = props => {
     setPersonState({persons: [
       {name:"Noush Gol MiMi Chi", age:"30"},
       {name:"MiMI", age:"31"},
-      {name:"Faraz", age:"6"},
+      {name:"Faraz", age:"6"}
     ]})
   }
     return(
@@ -27,9 +28,9 @@ const app = props => {
         <h1>Hi I am a React App</h1>
         <p>This is really working ...</p>
         <button onClick={switchNameHandler}>Switch Name</button>
-        <Person name={personsState.state.persons[0].name} age={personsState.state.persons[0].age}/>
-        <Person name={personsState.state.persons[1].name} age={personsState.state.persons[1].age}>My Hobbies: Books</Person>
-        <Person name={personsState.state.persons[2].name} age={personsState.state.persons[2].age} />
+        <Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>
+        <Person name={personsState.persons[1].name} age={personsState.persons[1].age}>My Hobbies: Books</Person>
+        <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
       </div>
     )
   }
