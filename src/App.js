@@ -50,7 +50,8 @@ class App extends Component {
       {name:"Noush Gol", age:"31"},
       {name:"MiMI", age:"31"},
       {name:"Faraz", age:"5"},
-    ]
+    ],
+    showPerson:false
   }
 
   switchNameHandler = (newName) =>{
@@ -70,6 +71,12 @@ class App extends Component {
       {name:"Faraz", age:"6"},
     ]})
   }
+
+  onTogglePersons = () => {
+    const codeShow = this.state.showPerson;
+    this.setState({showPerson: !codeShow })
+  }
+
   render(){
     // Defining inline style for the click -- onClick() bottum
     const style = {
@@ -85,18 +92,26 @@ class App extends Component {
         <p>This is really working ...</p>
         <button 
           style={style}
+          onClick={this.onTogglePersons}>Toggle Persons</button>
+        <button 
+          style={style}
           onClick={() => this.switchNameHandler('Farnoush... ')}>Switch Name</button>
-        <Person 
-            name={this.state.persons[0].name} 
-            age={this.state.persons[0].age}/>
-        <Person 
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind(this, 'Noushiiii!!!!')}
-            changed={this.nameChangeHandler}>My Hobbies: Books</Person>
-        <Person 
-            name={this.state.persons[2].name} 
-            age={this.state.persons[2].age} />
+        {
+          this.state.showPerson ?
+          <div> 
+          <Person 
+              name={this.state.persons[0].name} 
+              age={this.state.persons[0].age}/>
+          <Person 
+              name={this.state.persons[1].name} 
+              age={this.state.persons[1].age}
+              click={this.switchNameHandler.bind(this, 'Noushiiii!!!!')}
+              changed={this.nameChangeHandler}>My Hobbies: Books</Person>
+          <Person 
+              name={this.state.persons[2].name} 
+              age={this.state.persons[2].age} />
+        </div>: null}
+
       </div>
     )
   }
