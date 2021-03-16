@@ -86,6 +86,26 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     }
+    let persons = null;
+
+    if (this.state.showPerson){
+      persons = (
+        <div> 
+        <Person 
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age}/>
+        <Person 
+            name={this.state.persons[1].name} 
+            age={this.state.persons[1].age}
+            click={this.switchNameHandler.bind(this, 'Noushiiii!!!!')}
+            changed={this.nameChangeHandler}>My Hobbies: Books</Person>
+        <Person 
+            name={this.state.persons[2].name} 
+            age={this.state.persons[2].age} />
+      </div>
+      )
+    }
+
     return(
       <div className="App">
         <h1>Hi I am a React App</h1>
@@ -96,22 +116,7 @@ class App extends Component {
         <button 
           style={style}
           onClick={() => this.switchNameHandler('Farnoush... ')}>Switch Name</button>
-        {
-          this.state.showPerson ?
-          <div> 
-          <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age}/>
-          <Person 
-              name={this.state.persons[1].name} 
-              age={this.state.persons[1].age}
-              click={this.switchNameHandler.bind(this, 'Noushiiii!!!!')}
-              changed={this.nameChangeHandler}>My Hobbies: Books</Person>
-          <Person 
-              name={this.state.persons[2].name} 
-              age={this.state.persons[2].age} />
-        </div>: null}
-
+          {persons}
       </div>
     )
   }
